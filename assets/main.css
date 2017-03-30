@@ -1,0 +1,134 @@
+/*applying a general font to the whole page and box-sizing*/
+* {
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif;
+}
+
+/* mobile-phones-first */
+[class*="col-"] {
+    max-width: 100%;
+    display: block;
+    padding: 15px;
+}
+
+
+/*[class*="col-"] {
+    float: left;
+    padding: 15px;
+}*/
+
+
+#intro-row {
+  color: #e8e8e8;
+  background-color: #bd7763;
+  height: 100%;
+  box-shadow: 0 0.5px 0.5px 0 rgba(0,0,0,0.2), 0 0.5px 0.5px 0 rgba(0,0,0,0.2);
+}
+
+#card-exp {
+  background-color: white;
+}
+
+img {
+  padding: 5px;
+  position: relative;
+}
+
+#intro-text {
+  font-weight: thin;
+  font-size: 1.1em;
+}
+
+#card-container {
+  display: block;
+  margin: auto;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  border-radius: 3px;
+  padding: 3px;
+  width: 340px;
+  height: 475px;
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 0.5px 0.5px 0 rgba(0,0,0,0.5);
+}
+
+#card-img {
+  margin: auto;
+  padding: auto;
+  display: block;
+  width: 336px;
+  height: 469px;
+}
+
+
+#title-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: 3em;
+  margin: auto;
+}
+
+p {
+  font-size: 15px;
+}
+
+
+
+body {
+  background-color: #b0b9b0;
+  margin: auto;
+}
+
+#card-exp h3 {
+  margin: 5px 10px;
+  font-family: "Merriweather", serif;
+  font-weight: 500;
+}
+
+strong {
+  color: #1c56b2;
+}
+
+#card-exp p {
+  margin: 4px 4px 10px 4px;
+}
+
+div #card-exp {
+  max-width: 100%;
+  border-radius: 3px;
+  padding: 5px 10px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 0.5px 0.5px 0 rgba(0,0,0,0.5);
+}
+
+/* setting up a column system for tablets */
+/*@media only screen and (min-width: 600px) {
+.col-m-1 {width: 8.33%;}
+.col-m-2 {width: 16.66%;}
+.col-m3 {width: 25%;}
+.col-m4 {width: 33.33%;}
+.col-m5 {width: 41.66%;}
+.col-m6 {width: 50%;}
+.col-m7 {width: 58.33%;}
+.col-m8 {width: 66.66%;}
+.col-m9 {width: 75%;}
+.col-m10 {width: 83.33%;}
+.col-m11 {width: 91.66%;}
+.col-m12 {width: 100%;}
+}*/
+
+
+/* setting up a column system for screens and above */
+/*@media only screen and (min-width: 892px) {
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+}*/
