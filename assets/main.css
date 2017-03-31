@@ -43,6 +43,7 @@ h2 {
 
 .jargon {
   color: #a32e0d;
+  font-weight: bold;
 }
 
 #intro-row .center {
@@ -95,9 +96,11 @@ img {
   position: relative;
 }
 
+/*potentially use border to show where is clickable*/
 /*for the overlays on the card*/
 div #name-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 200px;
   height: 30px;
   top: 25px;
@@ -106,6 +109,7 @@ div #name-overlay {
 
 div #mana-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 60px;
   height: 30px;
   left: 250px;
@@ -114,6 +118,7 @@ div #mana-overlay {
 
 div #type-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 250px;
   height: 30px;
   top: 200px;
@@ -122,6 +127,7 @@ div #type-overlay {
 
 div #set-symbol-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 30px;
   height: 30px;
   top: 170px;
@@ -130,6 +136,7 @@ div #set-symbol-overlay {
 
 div #text-box-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 280px;
   height: 120px;
   top: 170px;
@@ -138,6 +145,7 @@ div #text-box-overlay {
 
 div #power-toughness-overlay {
   position: relative;
+  /*border: 1px dotted black;*/
   width: 70px;
   height: 30px;
   top: 170px;
@@ -146,6 +154,7 @@ div #power-toughness-overlay {
 
 div #artist-overlay {
   position: relative;
+  /*border: 1px dashed white;*/
   width: 100px;
   height: 20px;
   top: 170px;
