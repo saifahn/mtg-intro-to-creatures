@@ -1,22 +1,49 @@
 /*applying a general font to the whole page and box-sizing*/
 * {
   box-sizing: border-box;
-  font-family: 'Merriweather', serif;
 }
 
-/* mobile-phones-first */
+body {
+  background-color: #b0b9b0;
+  background-image: url(img/blacklotus.jpg);
+  margin: auto;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-family: 'Domine', serif;
+}
+
+/*.inline-image {
+  display: inline-block;
+}*/
+
+/* TODO implement responsiveness for tablets and above*/
+/* mobile first */
 [class*="col-"] {
     max-width: 100%;
     display: block;
     padding: 15px;
 }
 
+#title-text {
+  font-family: 'Domine', serif;
+  font-weight: 500;
+  font-size: 35px;
+  margin: auto;
+}
 
-/*[class*="col-"] {
-    float: left;
-    padding: 15px;
-}*/
+h2 {
+  margin: 5px 3px 3px 0px;
+  font-weight: 500;
+}
 
+.jargon {
+  color: #a32e0d;
+}
 
 #intro-row .center {
   text-align: center;
@@ -28,25 +55,18 @@
 
 #intro-row {
   color: #e8e8e8;
-  background-color: #bd7763;
+  background-color: #a32e0d;
+  padding: 10px 0px 0px 0px;
   height: 100%;
   box-shadow: 0 0.5px 0.5px 0 rgba(0,0,0,0.2), 0 0.5px 0.5px 0 rgba(0,0,0,0.2);
 }
 
-#card-exp {
-  background-color: #efefef;
-}
-
-
+/*div to center align text*/
 div .center {
   text-align: center;
 }
 
-img {
-  padding: 5px;
-  position: relative;
-}
-
+/*the white bit around the card*/
 #card-container {
   display: block;
   margin: auto;
@@ -60,6 +80,7 @@ img {
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 0.5px 0.5px 0 rgba(0,0,0,0.5);
 }
 
+/*the actual image*/
 #card-img {
   position: absolute;
   margin: auto;
@@ -69,6 +90,12 @@ img {
   height: 469px;
 }
 
+img {
+  padding: 5px;
+  position: relative;
+}
+
+/*for the overlays on the card*/
 div #name-overlay {
   position: relative;
   width: 200px;
@@ -125,73 +152,38 @@ div #artist-overlay {
   left: 50px;
 }
 
-#title-text {
-  font-family: 'PT Serif', sans-serif;
+/*the textbox at the end*/
+div #card-exp {
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #efefef;
+  padding: 5px 10px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 0.5px 0.5px 0 rgba(0,0,0,0.5);
+}
+#card-exp p {
+  font-size: 15px;
+  margin: 5px;
   font-weight: 500;
-  font-size: 35px;
-  margin: auto;
 }
-
-
-body {
-  background-color: #b0b9b0;
-  background-image: url(img/blacklotus.jpg);
-  background-size: 100%;
-  background-attachment: fixed;
-  margin: auto;
-}
-
 #card-exp h3 {
   margin: 5px 10px;
   font-family: "Merriweather", serif;
   font-weight: 500;
 }
 
-strong {
-  color: #1c56b2;
+footer div{
+  text-align: center;
+  margin-top: 20px;
 }
 
-#card-exp p {
-  margin: 4px 4px 10px 4px;
+footer p{
+  margin: 0px;
+  font-size: 10px;
+  color: white;
 }
 
-div #card-exp {
-  max-width: 100%;
-  border-radius: 3px;
-  background-color: #e8e8e8;
-  padding: 5px 10px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5), 0 0.5px 0.5px 0 rgba(0,0,0,0.5);
+/*for big screens*/
+@media only screen and (min-width: 768px) {
+  .col-8 {width:70%;
+  margin: auto;}
 }
-
-/* setting up a column system for tablets */
-/*@media only screen and (min-width: 600px) {
-.col-m-1 {width: 8.33%;}
-.col-m-2 {width: 16.66%;}
-.col-m3 {width: 25%;}
-.col-m4 {width: 33.33%;}
-.col-m5 {width: 41.66%;}
-.col-m6 {width: 50%;}
-.col-m7 {width: 58.33%;}
-.col-m8 {width: 66.66%;}
-.col-m9 {width: 75%;}
-.col-m10 {width: 83.33%;}
-.col-m11 {width: 91.66%;}
-.col-m12 {width: 100%;}
-}*/
-
-
-/* setting up a column system for screens and above */
-/*@media only screen and (min-width: 892px) {
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-}*/
