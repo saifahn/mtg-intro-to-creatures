@@ -2,28 +2,37 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Domine|Raleway|Slabo+27px|Roboto+Slab|Merriweather" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Domine|Raleway|Slabo+27px|Roboto+Slab|Merriweather|PT+Serif" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="./assets/script.js"></script>
 </head>
 <body>
   <div class="row blue-div">
-    <div class="col-12" id="intro-row">
-      <h2 id="title-text">An Introduction to Magic: the Gathering</h2>
-      <p id="intro-text">Magic: the Gathering is a fantasy trading card game where players take on the role of powerful wizards, or 'planeswalkers'. Players cast spells and summon creatures in an attempt to eliminate their opposition. This page will introduce you to one of the most important card types: Creatures.</p>
-      <a id="new-random" onclick="newRandomCard()">New random creature.</a>
+    <div class="col-12" id="intro-row" onclick="newRandomCard()">
+      <div class="center">
+        <h1 id="title-text">An Introduction to Magic: the Gathering</h1>
+        <p>Click on the card to learn more! Click on this banner to see a new card!</p>
+      </div>
+      <!-- <p id="intro-text">Magic: the Gathering is a fantasy trading card game where players take on the role of powerful wizards, or 'planeswalkers'. Players cast spells and summon creatures in an attempt to eliminate their opposition. This page will introduce you to one of the most important card types: Creatures.</p> -->
     </div>
   </div>
   <div class="row">
     <div class="col-4">
-      <div id="card-container" onclick="newRandomCard()">
-        <img src="./assets/img/176.jpg" id="card-img">
+      <div id="card-container">
+        <img src="" id="card-img">
+        <div class="overlay" id="name-overlay"></div>
+        <div class="overlay" id="mana-overlay"></div>
+        <div class="overlay" id="type-overlay"></div>
+        <div class="overlay" id="set-symbol-overlay"></div>
+        <div class="overlay" id="text-box-overlay"></div>
+        <div class="overlay" id="power-toughness-overlay"></div>
+        <div class="overlay" id="artist-overlay"></div>
       </div>
     </div>
     <div class="col-8">
       <div id="card-exp">
-
       <div>
     </div>
   </div>
