@@ -4,10 +4,11 @@
 }
 
 body {
-  background-color: #b0b9b0;
-  background-image: url(img/blacklotus.jpg);
+  background-color: blue;
+  background-image: url(img/black_scales/black_scales.png);
   margin: auto;
 }
+
 
 p {
   font-family: 'Open Sans', sans-serif;
@@ -156,9 +157,18 @@ div #artist-overlay {
   position: relative;
   /*border: 1px dashed white;*/
   width: 100px;
-  height: 20px;
-  top: 170px;
+  height: 30px;
+  top: 160px;
   left: 50px;
+}
+
+div #art-overlay {
+  position: relative;
+  /*border: 1px dashed red;*/
+  width: 275px;
+  height: 210px;
+  bottom: 248px;
+  left: 30px;
 }
 
 /*the textbox at the end*/
@@ -190,6 +200,23 @@ footer p{
   font-size: 10px;
   color: white;
 }
+
+a:link {
+  color: #4286f4;
+}
+
+a:visited {
+  color: #4286f4;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: hotpink;
+}
+
 
 /*for big screens*/
 @media only screen and (min-width: 768px) {

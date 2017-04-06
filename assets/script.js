@@ -339,8 +339,10 @@ function displayAbilitiesFromCard(card) {
 
   // TODO artist
   function displayArtistFromCard(card) {
+    var cardQueryUrl = "https://scryfall.com/search?q=a%3A%22";
+    cardQueryUrl += card.artist + "%22";
     var cardExp = document.getElementById("card-exp");
-    cardExp.innerHTML = "<p>" + card.artist + " did the art for <em>" + card.name + "</em>. Pretty cool, isn't it? The art is one of my favourite things about the game.</p>"
+    cardExp.innerHTML = "<p>" + card.artist + " did the art for <em>" + card.name + "</em>. Pretty cool, isn't it? The art is one of my favourite things about the game.</p><p>To see all card by the artist, click <a href=\"" + cardQueryUrl + "\" target=\"blank\">here</a>!</p>"
   }
 
   // get a randomCard from the list
@@ -398,5 +400,9 @@ function displayAbilitiesFromCard(card) {
       // if artist, display artist
       if (clickedId == "artist-overlay")
         displayArtistFromCard(currentCard);
+      // if art is clicked, display artist
+      if (clickedId == "art-overlay")
+        displayArtistFromCard(currentCard);
+      document.getElementById("card-exp").scrollIntoView({block: "end", behaviour: "smooth"});
     });
   }
