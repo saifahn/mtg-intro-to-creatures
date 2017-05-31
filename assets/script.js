@@ -12,7 +12,7 @@ var currentCard = {
   "image_uri": "https://img.scryfall.com/cards/en/kld/176.jpg?20170330011327",
   "name": "Cloudblazer",
   "mana_cost": "{3}{W}{U}",
-  "converted_mana_cost": "5.0",
+  "cmc": "5.0",
   "type_line": "Creature — Human Scout",
   "oracle_text": "Flying\nWhen Cloudblazer enters the battlefield, you gain 2 life and draw two cards.",
   "power": "2",
@@ -88,7 +88,7 @@ function displayManaFromCard(card) {
   var colourIdentityString = makeColourIdenString();
 
   // make a mana cost section
-  var manaCostBlock = "<div class='center'><h2>Mana Cost and Colours</h2></div><p>To summon creatures to do your bidding, you need to pay <span class='jargon'>mana</span>. This is " + cardName + "<em>\'s</em> <span class='jargon'>mana cost</span>; " + manaCostString + " and its <span class='jargon'>converted mana cost</span> (total) is " + parseInt(card.converted_mana_cost);
+  var manaCostBlock = "<div class='center'><h2>Mana Cost and Colours</h2></div><p>To summon creatures to do your bidding, you need to pay <span class='jargon'>mana</span>. This is " + cardName + "<em>\'s</em> <span class='jargon'>mana cost</span>; " + manaCostString + " and its <span class='jargon'>converted mana cost</span> (total) is " + parseInt(card.cmc);
 
   // if X
   if (colours.generic.match("X")) {
