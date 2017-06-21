@@ -1,7 +1,8 @@
+var standardCreatures = "https://api.scryfall.com/cards/search?q=format%3Astandard+t%3Acreature";
+
+
 $(document).ready(function() {
-  displayCurrentCard(currentCard);
-  displayDefaultText(currentCard);
-  getListAndInitialise();
+  recAddCardsToList(standardCreatures);
   addClickListeners();
 });
 
@@ -31,15 +32,7 @@ var currentCard = {
   "flavor_text": "All the aether charts in the world can't compete with the trained eye of a talented scout.",
   "artist": "Dan Scott",
 };
-// recursive function to add cards to the list, used when pulling the data
-function addToCardList(url) {
-  $.getJSON(url, function(listObj) {
-    cardList.push(listObj.data);
-    if (listObj.has_more) {
-      addToCardList(listObj.next_page);
-    }
-  });
-}
+
 // function to get a random card from the list
 function getRandomCard(list) {
   // current variable to keep track of where we are
@@ -358,21 +351,18 @@ function displayAbilitiesFromCard(card) {
 
 
   // recursive function to add all the data to the list
-  function recursiveAddThenDisplay(url) {
-    $.getJSON(url, function(list) {
+  function recAddCardsToList(url) {
+    $.getJSON(url).done(function(list) {
       cardList.push(list.data);
       if (list.has_more) {
-        recursiveAddThenDisplay(list.next_page);
+        recAddCardsToList(list.next_page);
+      }
+      else {
+        newRandomCard();
       }
     });
   }
 
-  var standardCreatures = "https://api.scryfall.com/cards/search?q=format%3Astandard+t%3Acreature";
-  // function to fetch all the recent creature cards and initialise
-  function getListAndInitialise(url) {
-    // make a JSON call
-    recursiveAddThenDisplay(standardCreatures, function() {});
-  }
 
   // for the click-ability on the image
   function addClickListeners() {
