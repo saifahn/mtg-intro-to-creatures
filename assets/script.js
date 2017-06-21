@@ -9,29 +9,7 @@ $(document).ready(function() {
 // store the data from the JSON request in a variable
 var cardList = [];
 // have a variable to store the current card, for random card etc.
-var currentCard = {
-  "image_uri": "https://img.scryfall.com/cards/en/kld/176.jpg?20170330011327",
-  "name": "Cloudblazer",
-  "mana_cost": "{3}{W}{U}",
-  "cmc": "5.0",
-  "type_line": "Creature — Human Scout",
-  "oracle_text": "Flying\nWhen Cloudblazer enters the battlefield, you gain 2 life and draw two cards.",
-  "power": "2",
-  "toughness": "2",
-  "layout": "normal",
-  "colors": [
-    "W",
-    "U"
-  ],
-  "color_identity": [
-    "W",
-    "U"
-  ],
-  "set_name": "Kaladesh",
-  "rarity": "uncommon",
-  "flavor_text": "All the aether charts in the world can't compete with the trained eye of a talented scout.",
-  "artist": "Dan Scott",
-};
+var currentCard;
 
 // function to get a random card from the list
 function getRandomCard(list) {
@@ -288,111 +266,123 @@ function displayAbilitiesFromCard(card) {
   // haste
   if (replacedText.match("Haste") || replacedText.match(", haste")) {
     text += "<p>Creatures without <span class='jargon'>haste</span> have to wait a turn before they can attack or <span class='jargon'>\'tap\'</span>. However, creatures like " + cardName + " can attack the turn they are summoned. Good if you're in a rush!</p>"
-    }
-      // hexproof
-    if (replacedText.match("Hexproof") || replacedText.match(", hexproof")) {
-      text += "<p>Creatures with <span class='jargon'>hexproof</span> can't be <span class='jargon'>\'targeted\'</span> by your opponents' spells and abilities. " + cardName + " is gonna be a pesky one for your opponents to get rid of!</p>"
-    }
-    // lifelink
-    if (replacedText.match("Lifelink") || replacedText.match(", lifelink")) {
-      text += "<p>" + cardName + " has <span class='jargon'>lifelink</span>, which means that you gain life equal to the damage it deals. That makes it less likely that you die, which I'm pretty sure is a bonus.</p>"
-    }
-    // menace
-    if (replacedText.match("Menace") || replacedText.match(", menace")) {
-      text += "<p>Creatures like " + cardName + " are so <span class='jargon'>menace</span>-ing that they can only be blocked if two or more creatures get the courage to block it at the same time. Me? I wouldn't dare.</p>"
-    }
-    // reach
-    if (replacedText.match("Reach") || replacedText.match(", reach")) {
-      text += "<p>" + cardName + " has <span class='jargon'>reach</span>, so it can block those pesky fliers your opponent has.</p>";
-    }
-    // TODO tap symbol {T}
-    // if (replacedText.match("{t}")) {
-    //   var tapSymbol = "<img alt='T.svg' src='assets/img/T.svg' width='30px' height='30px' class='inline-image'>";
-    //   text += "<p>" + tapSymbol + " is the <span class='jargon'>\'tap\'</span> symbol.</p>"
-    // }
-    // trample
-    if (replacedText.match("Trample") || replacedText.match(", trample")) {
-      text += "<p>Creatures with <span class='jargon'>trample</span> deal their excess damage to the <span class='jargon'>defending player</span> when they're blocked. It's best on huge, beefy creatures.</p>"
-    }
-    // vigilance
-    if (replacedText.match("Vigilance") || replacedText.match(", vigilance")) {
-      text += "<p>Normally, creatures must <span class='jargon'>\'tap\'</span>, or be turned 90 degrees, to attack. If a creature has <span class='jargon'>vigilance</span> (like this one), however, attacking doesn't cause it to tap. This is useful as only <span class='jargon'>\'untapped\'</span> creatures are able to block.</p>"
-    }
-    // add the rulebook bit
-    text += "<p>If you want to read more in detail about the game's rules and abilities, there is a hefty comprehensive rulebook, (over 200 pages!) available <a href=\"http://magic.wizards.com/en/game-info/gameplay/rules-and-formats/rules\" target=blank>here</a>. Be warned, it is really dry and technical!</p>";
-    cardExp.innerHTML = text;
   }
-
-  // make POWER and TOUGHNESS section
-  function displayPTFromCard(card) {
-    var cardExp = document.getElementById("card-exp");
-    var cardName = "<em>" + card.name + "</em>";
-    cardExp.innerHTML = "<div class='center'><h2>Power and Toughness</h2></div><p>These are " + cardName + "<em>'s</em> <span class='jargon'>power</span> and <span class='jargon'>toughness</span> attributes. These are important for when you send it to fight your opponents and their creatures!</p><p>" + cardName + " has " + card.power + " power and " + card.toughness + " toughness.</p>";
+  // hexproof
+  if (replacedText.match("Hexproof") || replacedText.match(", hexproof")) {
+    text += "<p>Creatures with <span class='jargon'>hexproof</span> can't be <span class='jargon'>\'targeted\'</span> by your opponents' spells and abilities. " + cardName + " is gonna be a pesky one for your opponents to get rid of!</p>"
   }
-
-  // TODO artist
-  function displayArtistFromCard(card) {
-    var cardQueryUrl = "https://scryfall.com/search?q=a%3A%22";
-    cardQueryUrl += card.artist + "%22";
-    var cardExp = document.getElementById("card-exp");
-    cardExp.innerHTML = "<p>" + card.artist + " did the art for <em>" + card.name + "</em>. Pretty cool, isn't it? The art is one of my favourite things about the game.</p><p>To see all card by the artist, click <a href=\"" + cardQueryUrl + "\" target=\"blank\">here</a>!</p>"
+  // lifelink
+  if (replacedText.match("Lifelink") || replacedText.match(", lifelink")) {
+    text += "<p>" + cardName + " has <span class='jargon'>lifelink</span>, which means that you gain life equal to the damage it deals. That makes it less likely that you die, which I'm pretty sure is a bonus.</p>"
   }
+  // menace
+  if (replacedText.match("Menace") || replacedText.match(", menace")) {
+    text += "<p>Creatures like " + cardName + " are so <span class='jargon'>menace</span>-ing that they can only be blocked if two or more creatures get the courage to block it at the same time. Me? I wouldn't dare.</p>"
+  }
+  // reach
+  if (replacedText.match("Reach") || replacedText.match(", reach")) {
+    text += "<p>" + cardName + " has <span class='jargon'>reach</span>, so it can block those pesky fliers your opponent has.</p>";
+  }
+  // TODO tap symbol {T}
+  // if (replacedText.match("{t}")) {
+  //   var tapSymbol = "<img alt='T.svg' src='assets/img/T.svg' width='30px' height='30px' class='inline-image'>";
+  //   text += "<p>" + tapSymbol + " is the <span class='jargon'>\'tap\'</span> symbol.</p>"
+  // }
+  // trample
+  if (replacedText.match("Trample") || replacedText.match(", trample")) {
+    text += "<p>Creatures with <span class='jargon'>trample</span> deal their excess damage to the <span class='jargon'>defending player</span> when they're blocked. It's best on huge, beefy creatures.</p>"
+  }
+  // vigilance
+  if (replacedText.match("Vigilance") || replacedText.match(", vigilance")) {
+    text += "<p>Normally, creatures must <span class='jargon'>\'tap\'</span>, or be turned 90 degrees, to attack. If a creature has <span class='jargon'>vigilance</span> (like this one), however, attacking doesn't cause it to tap. This is useful as only <span class='jargon'>\'untapped\'</span> creatures are able to block.</p>"
+  }
+  // add the rulebook bit
+  text += "<p>If you want to read more in detail about the game's rules and abilities, there is a hefty comprehensive rulebook, (over 200 pages!) available <a href=\"http://magic.wizards.com/en/game-info/gameplay/rules-and-formats/rules\" target=blank>here</a>. Be warned, it is really dry and technical!</p>";
+  cardExp.innerHTML = text;
+}
 
-  // get a randomCard from the list
-  function newRandomCard() {
+// make POWER and TOUGHNESS section
+function displayPTFromCard(card) {
+  var cardExp = document.getElementById("card-exp");
+  var cardName = "<em>" + card.name + "</em>";
+  cardExp.innerHTML = "<div class='center'><h2>Power and Toughness</h2></div><p>These are " + cardName + "<em>'s</em> <span class='jargon'>power</span> and <span class='jargon'>toughness</span> attributes. These are important for when you send it to fight your opponents and their creatures!</p><p>" + cardName + " has " + card.power + " power and " + card.toughness + " toughness.</p>";
+}
+
+// TODO artist
+function displayArtistFromCard(card) {
+  var cardQueryUrl = "https://scryfall.com/search?q=a%3A%22";
+  cardQueryUrl += card.artist + "%22";
+  var cardExp = document.getElementById("card-exp");
+  cardExp.innerHTML = "<p>" + card.artist + " did the art for <em>" + card.name + "</em>. Pretty cool, isn't it? The art is one of my favourite things about the game.</p><p>To see all card by the artist, click <a href=\"" + cardQueryUrl + "\" target=\"blank\">here</a>!</p>"
+}
+
+// get a randomCard from the list
+function newRandomCard() {
+  currentCard = getRandomCard(cardList);
+  // ignore transform and meld cards for now
+  while (currentCard.layout == "transform" || currentCard.layout == "meld") {
     currentCard = getRandomCard(cardList);
-    // ignore transform and meld cards for now
-    while (currentCard.layout == "transform" || currentCard.layout == "meld") {
-      currentCard = getRandomCard(cardList);
+  }
+  displayCurrentCard(currentCard);
+  displayDefaultText(currentCard);
+}
+
+
+// recursive function to add all the data to the list
+function recAddCardsToList(url) {
+  $.getJSON(url).done(function(list) {
+    cardList.push(list.data);
+    if (list.has_more) {
+      recAddCardsToList(list.next_page);
     }
-    displayCurrentCard(currentCard);
-    displayDefaultText(currentCard);
-  }
+    else {
+      newRandomCard();
+      loadingOff();
+    }
+  });
+}
+
+// functions to turn on/off
+function loadingOn() {
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("overlay-loader").style.display = "block"
+}
+
+function loadingOff() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay-loader").style.display = "none"
+}
 
 
-  // recursive function to add all the data to the list
-  function recAddCardsToList(url) {
-    $.getJSON(url).done(function(list) {
-      cardList.push(list.data);
-      if (list.has_more) {
-        recAddCardsToList(list.next_page);
-      }
-      else {
-        newRandomCard();
-      }
-    });
-  }
-
-
-  // for the click-ability on the image
-  function addClickListeners() {
-    var cardContainer = document.getElementById("card-container");
-    cardContainer.addEventListener('click', function(event) {
-      var clickedId = event.target.id;
-      //  if name, display name
-      if (clickedId == "name-overlay")
-        displayNameFromCard(currentCard);
-      //  if mana cost, display mana_cost
-      if (clickedId == "mana-overlay")
-        displayManaFromCard(currentCard);
-      //  if creature type, display creature type
-      if (clickedId == "type-overlay")
-        displayTypeFromCard(currentCard);
-      //  if set symbol, display set symbol
-      if (clickedId == "set-symbol-overlay")
-        displaySetFromCard(currentCard);
-      // if text box, display text box
-      if (clickedId == "text-box-overlay")
-        displayAbilitiesFromCard(currentCard);
-      // if power/toughness, display power/toughness
-      if (clickedId == "power-toughness-overlay")
-        displayPTFromCard(currentCard);
-      // if artist, display artist
-      if (clickedId == "artist-overlay")
-        displayArtistFromCard(currentCard);
-      // if art is clicked, display artist
-      if (clickedId == "art-overlay")
-        displayArtistFromCard(currentCard);
-      document.getElementById("card-exp").scrollIntoView({block: "end", behaviour: "smooth"});
-    });
-  }
+// for the click-ability on the image
+function addClickListeners() {
+  var cardContainer = document.getElementById("card-container");
+  cardContainer.addEventListener('click', function(event) {
+    var clickedId = event.target.id;
+    //  if name, display name
+    if (clickedId == "name-overlay")
+      displayNameFromCard(currentCard);
+    //  if mana cost, display mana_cost
+    if (clickedId == "mana-overlay")
+      displayManaFromCard(currentCard);
+    //  if creature type, display creature type
+    if (clickedId == "type-overlay")
+      displayTypeFromCard(currentCard);
+    //  if set symbol, display set symbol
+    if (clickedId == "set-symbol-overlay")
+      displaySetFromCard(currentCard);
+    // if text box, display text box
+    if (clickedId == "text-box-overlay")
+      displayAbilitiesFromCard(currentCard);
+    // if power/toughness, display power/toughness
+    if (clickedId == "power-toughness-overlay")
+      displayPTFromCard(currentCard);
+    // if artist, display artist
+    if (clickedId == "artist-overlay")
+      displayArtistFromCard(currentCard);
+    // if art is clicked, display artist
+    if (clickedId == "art-overlay")
+      displayArtistFromCard(currentCard);
+    document.getElementById("card-exp").scrollIntoView({block: "end", behaviour: "smooth"});
+  });
+}

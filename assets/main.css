@@ -29,6 +29,32 @@ h2 {
     padding: 15px;
 }
 
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(0,0,0,0.90);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.loader {
+  display: block;
+  margin: 40vh auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #a32e0d;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 #title-text {
   font-family: 'Domine', serif;
   font-weight: 500;
@@ -52,6 +78,8 @@ h2 {
 
 #intro-row p {
   font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #intro-row {
