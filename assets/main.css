@@ -72,7 +72,7 @@ h2 {
   font-weight: bold;
 }
 
-#intro-row .center {
+.center {
   text-align: center;
 }
 
@@ -84,15 +84,12 @@ h2 {
 
 #intro-row {
   color: #e8e8e8;
+  /*background-color: #6532ad;*/
+  /*background-color: #3933aa;*/
   background-color: #a32e0d;
   padding: 10px 0px 0px 0px;
   height: 100%;
   box-shadow: 0 0.5px 0.5px 0 rgba(0,0,0,0.2), 0 0.5px 0.5px 0 rgba(0,0,0,0.2);
-}
-
-/*div to center align text*/
-div .center {
-  text-align: center;
 }
 
 /*the white bit around the card*/

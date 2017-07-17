@@ -11,20 +11,36 @@ var cardList = [];
 // have a variable to store the current card, for random card etc.
 var currentCard;
 
-// function to get a random card from the list
-function getRandomCard(list) {
-  // current variable to keep track of where we are
-  var current = list;
-  var length = current.length;
-  // while we are in an array, keep going deeper
-  while (length > 1) {
-    // choose a random position in the current level
-    var randomPos = Math.floor(Math.random() * length);
-    current = current[randomPos];
-    length = current.length;
+// // function to get a random card from the list
+// function getRandomCard(list) {
+//   // current variable to keep track of where we are
+//   var current = list;
+//   var length = current.length;
+//   // while we are in an array, keep going deeper
+//   while (length > 1) {
+//     // choose a random position in the current level
+//     var randomPos = Math.floor(Math.random() * length);
+//     current = current[randomPos];
+//     length = current.length;
+//   }
+//   return current;
+// }
+
+// function to get a random card object from the array
+function getRandomCard(cardArray) {
+  var len = cardArray.length;
+  var card = cardArray[Math.floor(Math.random() * len)];
+  // until we get the card object
+  while (card.length) {
+    len = card.length;
+    card = card[Math.floor(Math.random() * len)];
+    if (!card.length) {
+      return card;
+    }
   }
-  return current;
+  return card;
 }
+
 // function to display the current card image
 function displayCurrentCard(card) {
   var image = document.getElementById("card-img");
@@ -327,17 +343,22 @@ function newRandomCard() {
   displayDefaultText(currentCard);
 }
 
+// card isn't loaded to begin
+var cardLoaded = false;
 
 // recursive function to add all the data to the list
 function recAddCardsToList(url) {
-  $.getJSON(url).done(function(list) {
+  $.getJSON(url, function(list) {
     cardList.push(list.data);
     if (list.has_more) {
       recAddCardsToList(list.next_page);
     }
-    else {
+  }).done(function(list) {
+    if (!cardLoaded) {
+      cardLoaded = true;
       newRandomCard();
-      loadingOff();
+      // TODO replace with vanillaJS
+      $("#overlay").fadeOut("slow");
     }
   });
 }
