@@ -44,7 +44,7 @@ function getRandomCard(cardArray) {
 // function to display the current card image
 function displayCurrentCard(card) {
   var image = document.getElementById("card-img");
-  var imageLink = "<img src='" + card.image_uri + "' id='card-img'>";
+  var imageLink = "<img src='" + card.image_uris.normal + "' id='card-img'>";
   // replace the current image with the new one
   image.outerHTML = imageLink;
 }
